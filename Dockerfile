@@ -16,10 +16,11 @@ RUN apt-get update --fix-missing && \
 # only package.json
 ADD package.json /alarmsTrigger/
 RUN cd /alarmsTrigger; npm install
+RUN touch ~/alarmsTrigger_logs.log
 
 # App
 ADD provider/. /alarmsTrigger/
 
 EXPOSE 8080
 
-CMD ["/bin/bash", "-c", "node /alarmsTrigger/app.js >> /logs/alarmsTrigger_logs.log 2>&1"]
+CMD ["/bin/bash", "-c", "node /alarmsTrigger/app.js >> ~/alarmsTrigger_logs.log 2>&1"]
