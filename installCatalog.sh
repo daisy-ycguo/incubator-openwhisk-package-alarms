@@ -75,14 +75,14 @@ fi
 
 # make alarmWebAction.zip
 cd action
-npm install
+#npm install
 
-if [ -e alarmWebAction.zip ];
-then
-    rm -rf alarmWebAction.zip
-fi
+#if [ -e alarmWebAction.zip ];
+#then
+#    rm -rf alarmWebAction.zip
+#fi
 
-zip -r alarmWebAction.zip package.json alarmWebAction.js node_modules
+#zip -r alarmWebAction.zip package.json alarmWebAction.js node_modules
 
 $WSK_CLI -i --apihost "$EDGEHOST" action update --kind nodejs:6 --auth "$AUTH" alarmsWeb/alarmWebAction "$PACKAGE_HOME/action/alarmWebAction.zip" \
     -a description 'Create/Delete a trigger in alarms provider Database' \
